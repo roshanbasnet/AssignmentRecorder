@@ -6,8 +6,9 @@ class Assignment {
     String subject
     String type
     String  description
-    String assignment
+    String question
     Date assignDate
+    Date dueDate
     String timeRemaining
 
     static constraints = {

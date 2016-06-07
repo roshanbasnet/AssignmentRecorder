@@ -9,6 +9,14 @@ class AssignmentController {
     def index() {
         render(view: "/index")
     }
+    def show(Assignment assignmentInstance) {
+        respond assignmentInstance
+    }
+
+
+    def create1(){
+        render(view:"create1")
+    }
     def aboutUs(){
         render(view: "aboutUs")
     }

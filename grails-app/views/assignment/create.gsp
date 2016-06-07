@@ -6,69 +6,43 @@
 --%>
 
 <%@ page import="assignmentrecorder.Assignment" contentType="text/html;charset=UTF-8" %>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta name="layout" content="main"/>
     <title>assignmentRecorder</title>
+    <g:set var="entityName" value="${message(code: 'assignment.label', default: 'Assignment')}" />
+    <title><g:message code="default.create.label" args="[entityName]" /></title>
 </head>
 
 <body>
 <div><H2 class="" id="create" >Create</H2></div>
 
-<form class="form-horizontal">
+    <div class="form-horizontal">
+    <div id="create-assignment" class="content scaffold-create" role="main">
+        %{--<h1><g:message code="default.create.label" args="[entityName]" /></h1>--}%
+        <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+        </g:if>
+        <g:hasErrors bean="${assignmentInstance}">
+            <ul class="errors" role="alert">
+                <g:eachError bean="${assignmentInstance}" var="error">
+                    <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+                </g:eachError>
+            </ul>
+        </g:hasErrors>
+        <g:form url="[resource:assignmentInstance, action:'save']" >
+            <fieldset class="form">
+                <g:render template="form"/>
+            </fieldset>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" name="create" class="btn btn-primary">Submit</button>
+                    %{--<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />--}%
 
-    <div class="form-group">
-        <label  class="col-sm-2 control-label">Id</label>
-        <div class="col-sm-10 col-xs-2">
-            <input type="text" class="form-control form-size" id="gee" placeholder="id">
-        </div>
+                </div>
+            </div>
+        </g:form>
     </div>
-    <div class="form-group">
-        <label  class="col-sm-2 control-label">Subject</label>
-        <div class="col-sm-10 col-xs-2">
-            <input type="text" class="form-control form-size" id="ge" placeholder="subject">
-        </div>
-    </div>
-
-    <div class="form-group form-horizontal">
-        <label  class="col-sm-2 control-label">Type</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control form-size" id="g2" placeholder="type">
-        </div>
-    </div>
-
-    <div class="form-group ">
-        <label  class="col-sm-2 control-label text-area">Description</label>
-        <div class="col-sm-10 col-sx-2">
-            <textarea class="form-control form-size" rows="3" placeholder="description" id="g"></textarea>
-        </div>
-    </div>
-
-
-    <div class="form-group form-horizontal">
-        <label  class="col-sm-2 control-label">Assign Date</label>
-        <div class="col-sm-10 ">
-            <g:datePicker name="myDate" value="${new Date()}"
-                          noSelection="['':'-Choose-']"/>
-        </div>
-    </div>
-
-    <div class="form-group form-horizontal">
-        <label  class="col-sm-2 control-label">Due Date</label>
-        <div class="col-sm-10">
-            <g:datePicker name="myDate" value="${new Date()}"
-                          noSelection="['':'-Choose-']"/>
-            %{--     <calendar:datePicker name="date" defaultValue="${new Date()}"
-                                      noSlection="['':'-Choose']"/>--}%
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-    </div>
-
-</form>
+</div>
 </body>
 </html>
