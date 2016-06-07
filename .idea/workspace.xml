@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38a74841-2f64-4578-a0b0-566f30e4c5c5" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/grails-app/views/assignment/create1.gsp" afterPath="$PROJECT_DIR$/grails-app/views/assignment/edit.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/assignmentrecorder/Assignment.class" afterPath="$PROJECT_DIR$/target/classes/assignmentrecorder/Assignment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.slcache/.index" afterPath="$PROJECT_DIR$/.slcache/.index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/assignmentrecorder/AssignmentController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/assignmentrecorder/AssignmentController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/assignmentrecorder/Assignment.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/assignmentrecorder/Assignment.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/assignment/_form.gsp" afterPath="$PROJECT_DIR$/grails-app/views/assignment/_form.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/assignment/create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/assignment/create.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/assignment/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/assignment/show.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
     </list>
     <ignored path="AssignmentRecorder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -744,7 +735,7 @@
       <workItem from="1465283347496" duration="318000" />
       <workItem from="1465283749230" duration="237000" />
       <workItem from="1465284443686" duration="13558000" />
-      <workItem from="1465314040622" duration="8965000" />
+      <workItem from="1465314040622" duration="9068000" />
     </task>
     <task id="LOCAL-00001" summary="add domian and database">
       <created>1464935551612</created>
@@ -788,11 +779,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465305811491</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="controller and view  for  create,edit and show">
+      <created>1465323100667</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1465323100667</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28516000" />
+    <option name="totallyTimeSpent" value="28619000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -889,7 +887,8 @@
     <MESSAGE value="model" />
     <MESSAGE value="major changes on project" />
     <MESSAGE value="modified input  form" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified input  form" />
+    <MESSAGE value="controller and view  for  create,edit and show" />
+    <option name="LAST_COMMIT_MESSAGE" value="controller and view  for  create,edit and show" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
