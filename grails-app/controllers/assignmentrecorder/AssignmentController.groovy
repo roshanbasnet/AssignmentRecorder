@@ -9,25 +9,23 @@ class AssignmentController {
     def index() {
         render(view: "/index")
     }
-    def show(Assignment assignmentInstance) {
-        respond assignmentInstance
-    }
+
+//    def show(Assignment assignmentInstance) {
+//        respond assignmentInstance
+//    }
 
 
-    def create1(){
-        render(view:"create1")
-    }
-    def aboutUs(){
+    def aboutUs() {
         render(view: "aboutUs")
     }
 
-    def contactUs(){
+    def contactUs() {
         render(view: "contactUs")
     }
 
-    def list(Integer max) {
+    def show(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [assignmentInstance: Assignment.list(params), assignmentTolatInstance: Assignment.count(),listType:"All"]
+        [assignmentInstanceList: Assignment.list(params), assignmentInstanceTotal: Assignment.count(), listType: "All"]
 
     }
 
@@ -44,12 +42,15 @@ class AssignmentController {
 
         flash.message = message(code: 'assignment.label', default: 'assignment created Succesfully')
         redirect(action: "create")
+
     }
+
+
     def edit() {
         println params.id
         def assignmentInstance = Assignment.findById(params.id)
         if (!assingnmentInstance) {
-            flash.message ="Not Found!!"
+            flash.message = "Not Found!!"
             redirect(action: "list")
         }
         [assignmentInstance: assingnmentInstance]
@@ -57,35 +58,28 @@ class AssignmentController {
 
     def update() {
         def assignmentInstance = Assignment.findById(params.id)
-        if(assignmentInstance){
+        if (assignmentInstance) {
             assignmentInstance.properties = params
             flash.message = message(code: 'default.updated.message', args: [message(code: 'assignment.label', default: 'assignment.Assignment'), assignmentInstance.id])
-            redirect action: 'list'
-        }
-        else{
-            redirect action: 'edit',params: [id:params.id]
+            redirect action: 'show'
+        } else {
+            redirect action: 'edit', params: [id: params.id]
         }
     }
 
     def delete() {
         def assignmentInstance = Assignment.findById(params.id)
         if (!assignmentInstance) {
-            render action: 'list'
+            render action: 'show'
         }
         try {
             assignmentInstance.delete(flush: true)
-            redirect(action: 'list')
+            redirect(action: 'show')
         }
         catch (DataIntegrityViolationException e) {
             flash.message = "Something went wrong!!"
-            redirect(action: 'list')
+            redirect(action: 'show')
         }
-
     }
-
-
-
-
 }
-
 

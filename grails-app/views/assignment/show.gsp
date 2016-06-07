@@ -1,5 +1,10 @@
-
-<%@ page import="assignmentrec.Assignment" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: sparkle
+  Date: 6/6/16
+  Time: 9:00 AM
+--%>
+<%@ page import="assignmentrecorder.Assignment" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,81 +13,53 @@
     <title><g:message code="default.show.label" args="[entityName]" /></title>
 </head>
 <body>
-<a href="#show-assignment" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-<div class="nav" role="navigation">
-    <ul>
-        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-    </ul>
-</div>
+
 <div id="show-assignment" class="content scaffold-show" role="main">
     <h1><g:message code="default.show.label" args="[entityName]" /></h1>
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <ol class="property-list assignment">
+    <div class="table-responsive">
+        <table class="table .table-hover table-bordered">
 
-        <g:if test="${assignmentInstance?.subject}">
-            <li class="fieldcontain">
-                <span id="subject-label" class="property-label"><g:message code="assignment.subject.label" default="Subject" /></span>
+            <tr>
+                <g:sortableColumn id="" property="id" title="${message(code: 'assignment.id.label', default: 'id')}" />
+                <g:sortableColumn id="userListHeader" property="subject" title="${message(code: 'message.rollno.label', default: 'subject')}" />
+                <g:sortableColumn id="userListHeader" property="type" title="${message(code: 'message.rollno.label', default: 'type')}" />
+                <g:sortableColumn id="userListHeader" property="question" title="${message(code: 'message.rollno.label', default: 'question')}" />
+                <g:sortableColumn id="userListHeader" property="description" title="${message(code: 'message.rollno.label', default: 'description')}" />
+                <g:sortableColumn id="userListHeader" property="assignDate" title="${message(code: 'message.rollno.label', default: 'assignDate')}" />
+                <g:sortableColumn id="userListHeader" property="dueDate" title="${message(code: 'message.rollno.label', default: 'dueDate')}" />
+                %{--<g:sortableColumn id="userListHeader" property="timeRemaining" title="${message(code: 'message.rollno.label', default: 'timeRemaining')}" />--}%
 
-                <span class="property-value" aria-labelledby="subject-label"><g:fieldValue bean="${assignmentInstance}" field="subject"/></span>
+                <th>Edit</th>
 
-            </li>
-        </g:if>
+                <th>Delete</th>
+            </tr>
 
-        <g:if test="${assignmentInstance?.type}">
-            <li class="fieldcontain">
-                <span id="type-label" class="property-label"><g:message code="assignment.type.label" default="Type" /></span>
-
-                <span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${assignmentInstance}" field="type"/></span>
-
-            </li>
-        </g:if>
-
-        <g:if test="${assignmentInstance?.assignDate}">
-            <li class="fieldcontain">
-                <span id="assignDate-label" class="property-label"><g:message code="assignment.assignDate.label" default="Assign Date" /></span>
-
-                <span class="property-value" aria-labelledby="assignDate-label"><g:formatDate date="${assignmentInstance?.assignDate}" /></span>
-
-            </li>
-        </g:if>
-
-        <g:if test="${assignmentInstance?.assignment}">
-            <li class="fieldcontain">
-                <span id="assignment-label" class="property-label"><g:message code="assignment.assignment.label" default="Assignment" /></span>
-
-                <span class="property-value" aria-labelledby="assignment-label"><g:fieldValue bean="${assignmentInstance}" field="assignment"/></span>
-
-            </li>
-        </g:if>
-
-        <g:if test="${assignmentInstance?.description}">
-            <li class="fieldcontain">
-                <span id="description-label" class="property-label"><g:message code="assignment.description.label" default="Description" /></span>
-
-                <span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${assignmentInstance}" field="description"/></span>
-
-            </li>
-        </g:if>
-
-        <g:if test="${assignmentInstance?.timeRemaining}">
-            <li class="fieldcontain">
-                <span id="timeRemaining-label" class="property-label"><g:message code="assignment.timeRemaining.label" default="Time Remaining" /></span>
-
-                <span class="property-value" aria-labelledby="timeRemaining-label"><g:fieldValue bean="${assignmentInstance}" field="timeRemaining"/></span>
-
-            </li>
-        </g:if>
-
-    </ol>
-    <g:form url="[resource:assignmentInstance, action:'delete']" method="DELETE">
-        <fieldset class="buttons">
-            <g:link class="edit" action="edit" resource="${assignmentInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-            <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-        </fieldset>
+            <g:if test="${assignmentInstanceList}">
+                <tbody>
+                <g:each in="${assignmentInstanceList}" status="i" var="assignmentInstance">
+                %{--<tr class="${(i % 2) == 0 ? 'even' : 'odd'}" style="text-align: center">--}%
+                    <td id="userData">${assignmentInstance.id}</td>
+                    <td id="userData">${fieldValue(bean: assignmentInstance, field: "subject")} </td>
+                    <td id="userData">${fieldValue(bean: assignmentInstance, field: "type")} </td>
+                    <td id="userData">${fieldValue(bean: assignmentInstance, field: "question")} </td>
+                    <td id="userData">${fieldValue(bean: assignmentInstance, field: "description")} </td>
+                    <td id="userData">${fieldValue(bean: assignmentInstance, field: "assignDate")} </td>
+                    <td id="userData">${fieldValue(bean: assignmentInstance, field: "dueDate")} </td>
+                </g:each>
+                </tbody>
+            </g:if>
+        </table>
+    </div>
+    <g:form controller="assignment" action="edit">
+        <g:hiddenField type="number" name="id" value="${assignmentInstanceList.id}"/>
+        <td><button>Edit</button></td>
+    </g:form>
+    <g:form controller="assignment" action="delete">
+        <g:hiddenField type="number" name="id" value="${assignmentInstanceList.id}"/>
+        <td><button onclick="alert('Deleting the Assignment')">Delete</button></td>
     </g:form>
 </div>
 </body>

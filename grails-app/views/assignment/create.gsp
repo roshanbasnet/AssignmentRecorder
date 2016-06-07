@@ -19,7 +19,6 @@
 
     <div class="form-horizontal">
     <div id="create-assignment" class="content scaffold-create" role="main">
-        %{--<h1><g:message code="default.create.label" args="[entityName]" /></h1>--}%
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
         </g:if>
@@ -37,8 +36,6 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" name="create" class="btn btn-primary">Submit</button>
-                    %{--<g:submitButton name="create" class="btn btn-primary" value="${message(code: 'default.button.create.label', default: 'Create')}" />--}%
-
                 </div>
             </div>
         </g:form>

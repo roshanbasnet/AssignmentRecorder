@@ -9,7 +9,7 @@ class Assignment {
     String question
     Date assignDate
     Date dueDate
-    String timeRemaining
+   // String timeRemaining
 
     static constraints = {
         subject nullable: false,maxSize: 50;
