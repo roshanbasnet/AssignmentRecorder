@@ -1,0 +1,23 @@
+.form-size{
+    width: 425px;
+
+}
+#topic{
+    background-color: #efefef;
+    margin-right: 538px;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 518px;
+    margin-bottom: 36px;
+    /*padding-top: 20px;*/
+    padding-bottom: 5px;
+}
+#create {
+    margin-left: 198px;
+    margin-bottom: 51px;
+    margin-right: 969px;
+}
+#navbar{
+    margin-right: 20px;
+    float: right;
+}
