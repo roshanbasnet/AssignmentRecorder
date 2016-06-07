@@ -735,7 +735,7 @@
       <workItem from="1465283347496" duration="318000" />
       <workItem from="1465283749230" duration="237000" />
       <workItem from="1465284443686" duration="13558000" />
-      <workItem from="1465314040622" duration="9068000" />
+      <workItem from="1465314040622" duration="9084000" />
     </task>
     <task id="LOCAL-00001" summary="add domian and database">
       <created>1464935551612</created>
@@ -786,11 +786,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465323100667</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="controller and view  for  create,edit and show">
+      <created>1465323130967</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1465323130967</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28619000" />
+    <option name="totallyTimeSpent" value="28635000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
