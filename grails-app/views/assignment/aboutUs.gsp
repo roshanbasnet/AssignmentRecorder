@@ -15,5 +15,6 @@
 
 <body>
     <h2 id="topic">About Us</h2>
+<h3 style="text-align: center">This is the about page and on progress!!!</h3>
 </body>
 </html>

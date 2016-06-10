@@ -37,19 +37,19 @@
 				<tbody>
 				<g:each in="${assignmentInstanceList}" status="i" var="assignmentInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}" style="text-align: center">
-					<td id="userData">${assignmentInstance.id}</td>
-					<td id="userData">${fieldValue(bean: assignmentInstance, field: "subject")} </td>
-					<td id="userData">${fieldValue(bean: assignmentInstance, field: "type")} </td>
-					<td id="userData">${fieldValue(bean: assignmentInstance, field: "question")} </td>
-					<td id="userData">${fieldValue(bean: assignmentInstance, field: "description")} </td>
-					<td id="userData">${fieldValue(bean: assignmentInstance, field: "assignDate")} </td>
-					<td id="userData">${fieldValue(bean: assignmentInstance, field: "dueDate")} </td>
+					<td id="">${assignmentInstance.id}</td>
+					<td id="">${fieldValue(bean: assignmentInstance, field: "subject")} </td>
+					<td id="">${fieldValue(bean: assignmentInstance, field: "type")} </td>
+					<td id="">${fieldValue(bean: assignmentInstance, field: "question")} </td>
+					<td id="">${fieldValue(bean: assignmentInstance, field: "description")} </td>
+					<td id="">${fieldValue(bean: assignmentInstance, field: "assignDate")} </td>
+					<td id="">${fieldValue(bean: assignmentInstance, field: "dueDate")} </td>
 					<g:form controller="assignment" >
 						<g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
 						<td><g:actionSubmit value="Edit" action="edit">Edit</g:actionSubmit></td>
 					</g:form>
-					<g:form controller="assignment" action="delete1">
-						<g:hiddenField type="number" name="id" params="[id: assignmentInstanceList.id ]"/>
+					<g:form controller="assignment" action="delete">
+						<g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
 						<td><button onclick="alert('Deleting the Assignment')">Delete</button></td>
 					</g:form>
 				</g:each>

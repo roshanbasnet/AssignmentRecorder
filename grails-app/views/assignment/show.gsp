@@ -50,10 +50,10 @@
                     <td id="userData">${fieldValue(bean: assignmentInstance, field: "dueDate")} </td>
                     <g:form controller="assignment" >
                         <g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
-                        <td><g:actionSubmit value="Edit" action="edit">Edit</g:actionSubmit></td>
+                        <td><g:actionSubmit class=" btn btn-primary" value="Edit" action="edit">Edit</g:actionSubmit></td>
                     </g:form>
                     <g:form controller="assignment" action="delete1">
-                        <g:hiddenField type="number" name="id" params="[id: assignmentInstanceList.id ]"/>
+                        <g:hiddenField type="number" class="btn btn-primary" name="id" params="[id: assignmentInstanceList.id ]"/>
                         <td><button onclick="alert('Deleting the Assignment')">Delete</button></td>
                     </g:form>
                 </g:each>

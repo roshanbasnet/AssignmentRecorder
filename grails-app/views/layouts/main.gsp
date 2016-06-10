@@ -33,7 +33,7 @@
 
 <footer class="nav-justified footer text-center">
 	<div class="panel panel-default">
-		<div class="panel-footer">&copy; 2016 Company, Inc.</div>
+		<div class="panel-footer">&copy; 2016 assignmnentRecorder</div>
 	</div>
 </footer>
 </body>

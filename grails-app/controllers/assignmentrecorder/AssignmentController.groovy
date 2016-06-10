@@ -6,9 +6,9 @@ import org.springframework.dao.DataIntegrityViolationException
 class AssignmentController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-//    def index() {
-//        render(view: "/index")
-//    }
+    def show() {
+        render(view: "index")
+    }
 
 //    def show(Assignment assignmentInstance) {
 //        respond assignmentInstance
@@ -52,19 +52,21 @@ class AssignmentController {
 
     def edit() {
         def assignmentInstance = Assignment.findById(params.id)
-        println "ajhsjhashajhs" + params.id
         if (!assignmentInstance) {
             flash.message = "Not Found!!"
-            redirect(action: "show")
+            redirect(action: "index")
         }
         else {
+            println "ajhsjhashajhs  is  " + params.id
             [assignmentInstance: assignmentInstance]
         }
 
     }
 
     def update() {
-        def assignmentInstance = Assignment.findById(params)
+        def assignmentInstance = Assignment.findById(params.id)
+        println "ajhsjhashajhs" + params.id
+
         if (assignmentInstance) {
             assignmentInstance.properties = params
             flash.message = message(code: 'default.updated.message', args: [message(code: 'assignment.label', default: 'assignment.Assignment'), assignmentInstance.id])
@@ -76,6 +78,7 @@ class AssignmentController {
 
     def delete() {
         def assignmentInstance = Assignment.findById(params.id)
+        println "asdasdasdasd" + id
         if (!assignmentInstance) {
             render action: 'show'
         }
@@ -87,11 +90,6 @@ class AssignmentController {
             flash.message = "Something went wrong!!"
             redirect(action: 'show')
         }
-    }
-    def delete1(){
-        Assignment assignment = Assignment.get(params.id)
-        assignment.delete()
-        redirect(action: 'show')
     }
 }
 

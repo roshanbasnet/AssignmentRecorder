@@ -15,5 +15,6 @@
 
 <body>
     <h2 id="topic">Contact US</h2>
+<h3 style="text-align: center">This is the Contact page and on progress!!!</h3>
 </body>
 </html>
