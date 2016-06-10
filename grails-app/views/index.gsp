@@ -1,52 +1,65 @@
+<%@ page import="assignmentrecorder.Assignment" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta name="layout" content="main"/>
 	<title>Assignment Recorder</title>
+
 </head>
 <body>
 
 <div><H2 id="topic" class="dk">Assignment List</H2></div>
 
+<div id="show-assignment" class="content scaffold-show" role="main">
+	<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+	<g:if test="${flash.message}">
+		<div class="message" role="status">${flash.message}</div>
+	</g:if>
+	<div class="table-responsive">
+		<table class="table .table-hover table-bordered">
 
-<div class="table-responsive">
-	<table class="table .table-hover table-bordered">
-		<thead>
-		<tr>
-			<th>Id</th>
-			<th>Subject</th>
-			<th>Type</th>
-			<th>Description</th>
-			<th>Assign Date</th>
-			<th>Time Remaning</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-			<td>1,001</td>
-			<td>Lorem</td>
-			<td>ipsum</td>
-			<td>dolor</td>
-			<td>sit</td>
-			<td>sit</td>
-			<td><button class="btn btn-primary">Edit</button></td>
-			<td><button class="btn btn-primary">Delete</button></td>
-		</tr>
-		<tr>
-			<td>1,002</td>
-			<td>amet</td>
-			<td>consectetur</td>
-			<td>adipiscing</td>
-			<td>elit</td>
-			<td>elit</td>
+			<tr>
+				<g:sortableColumn id="" property="id" title="${message(code: 'assignment.id.label', default: 'id')}" />
+				<g:sortableColumn id="userListHeader" property="subject" title="${message(code: 'message.rollno.label', default: 'subject')}" />
+				<g:sortableColumn id="userListHeader" property="type" title="${message(code: 'message.rollno.label', default: 'type')}" />
+				<g:sortableColumn id="userListHeader" property="question" title="${message(code: 'message.rollno.label', default: 'question')}" />
+				<g:sortableColumn id="userListHeader" property="description" title="${message(code: 'message.rollno.label', default: 'description')}" />
+				<g:sortableColumn id="userListHeader" property="assignDate" title="${message(code: 'message.rollno.label', default: 'assignDate')}" />
+				<g:sortableColumn id="userListHeader" property="dueDate" title="${message(code: 'message.rollno.label', default: 'dueDate')}" />
+				%{--<g:sortableColumn id="userListHeader" property="timeRemaining" title="${message(code: 'message.rollno.label', default: 'timeRemaining')}" />--}%
 
-			<td><button class="btn btn-primary">Edit</button></td>
-			<td><button class="btn btn-primary">Delete</button></td>
-		</tr>
-		<tr>
-		</tr>
-		</tbody>
-	</table>
+				<th>Edit</th>
+
+				<th>Delete</th>
+			</tr>
+
+			<g:if test="${assignmentInstanceList}">
+				<tbody>
+				<g:each in="${assignmentInstanceList}" status="i" var="assignmentInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}" style="text-align: center">
+					<td id="userData">${assignmentInstance.id}</td>
+					<td id="userData">${fieldValue(bean: assignmentInstance, field: "subject")} </td>
+					<td id="userData">${fieldValue(bean: assignmentInstance, field: "type")} </td>
+					<td id="userData">${fieldValue(bean: assignmentInstance, field: "question")} </td>
+					<td id="userData">${fieldValue(bean: assignmentInstance, field: "description")} </td>
+					<td id="userData">${fieldValue(bean: assignmentInstance, field: "assignDate")} </td>
+					<td id="userData">${fieldValue(bean: assignmentInstance, field: "dueDate")} </td>
+					<g:form controller="assignment" >
+						<g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
+						<td><g:actionSubmit value="Edit" action="edit">Edit</g:actionSubmit></td>
+					</g:form>
+					<g:form controller="assignment" action="delete1">
+						<g:hiddenField type="number" name="id" params="[id: assignmentInstanceList.id ]"/>
+						<td><button onclick="alert('Deleting the Assignment')">Delete</button></td>
+					</g:form>
+				</g:each>
+				</tbody>
+			</g:if>
+		</table>
+	</div>
+
 </div>
+
+
 </body>
 </html>

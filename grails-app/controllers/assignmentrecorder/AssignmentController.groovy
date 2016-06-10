@@ -6,9 +6,9 @@ import org.springframework.dao.DataIntegrityViolationException
 class AssignmentController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {
-        render(view: "/index")
-    }
+//    def index() {
+//        render(view: "/index")
+//    }
 
 //    def show(Assignment assignmentInstance) {
 //        respond assignmentInstance
@@ -22,8 +22,12 @@ class AssignmentController {
     def contactUs() {
         render(view: "contactUs")
     }
+//
+//    def show(){
+//        render(view: 'show')
+//    }
 
-    def show(Integer max) {
+    def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [assignmentInstanceList: Assignment.list(params), assignmentInstanceTotal: Assignment.count(), listType: "All"]
 
@@ -56,7 +60,6 @@ class AssignmentController {
         else {
             [assignmentInstance: assignmentInstance]
         }
-
 
     }
 
