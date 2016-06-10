@@ -5,8 +5,8 @@ class Assignment {
     Integer id
     String subject
     String type
-    String  description
     String question
+    String  description
     Date assignDate
     Date dueDate
    // String timeRemaining

@@ -47,13 +47,17 @@ class AssignmentController {
 
 
     def edit() {
-        println params.id
-        def assignmentInstance = Assignment.get(params.id)
+        def assignmentInstance = Assignment.findById(params.id)
+        println "ajhsjhashajhs" + params.id
         if (!assignmentInstance) {
             flash.message = "Not Found!!"
             redirect(action: "show")
         }
-        [assignmentInstance:assignmentInstance]
+        else {
+            [assignmentInstance: assignmentInstance]
+        }
+
+
     }
 
     def update() {
