@@ -48,16 +48,16 @@ class AssignmentController {
 
     def edit() {
         println params.id
-        def assignmentInstance = Assignment.findById(params.id)
-        if (!assingnmentInstance) {
+        def assignmentInstance = Assignment.get(params.id)
+        if (!assignmentInstance) {
             flash.message = "Not Found!!"
-            redirect(action: "list")
+            redirect(action: "show")
         }
-        [assignmentInstance: assingnmentInstance]
+        [assignmentInstance:assignmentInstance]
     }
 
     def update() {
-        def assignmentInstance = Assignment.findById(params.id)
+        def assignmentInstance = Assignment.findById(params)
         if (assignmentInstance) {
             assignmentInstance.properties = params
             flash.message = message(code: 'default.updated.message', args: [message(code: 'assignment.label', default: 'assignment.Assignment'), assignmentInstance.id])
@@ -80,6 +80,11 @@ class AssignmentController {
             flash.message = "Something went wrong!!"
             redirect(action: 'show')
         }
+    }
+    def delete1(){
+        Assignment assignment = Assignment.get(params.id)
+        assignment.delete()
+        redirect(action: 'show')
     }
 }
 

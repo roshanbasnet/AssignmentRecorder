@@ -40,7 +40,7 @@
             <g:if test="${assignmentInstanceList}">
                 <tbody>
                 <g:each in="${assignmentInstanceList}" status="i" var="assignmentInstance">
-                %{--<tr class="${(i % 2) == 0 ? 'even' : 'odd'}" style="text-align: center">--}%
+                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}" style="text-align: center">
                     <td id="userData">${assignmentInstance.id}</td>
                     <td id="userData">${fieldValue(bean: assignmentInstance, field: "subject")} </td>
                     <td id="userData">${fieldValue(bean: assignmentInstance, field: "type")} </td>
@@ -57,7 +57,7 @@
         <g:hiddenField type="number" name="id" value="${assignmentInstanceList.id}"/>
         <td><button>Edit</button></td>
     </g:form>
-    <g:form controller="assignment" action="delete">
+    <g:form controller="assignment" action="delete1">
         <g:hiddenField type="number" name="id" value="${assignmentInstanceList.id}"/>
         <td><button onclick="alert('Deleting the Assignment')">Delete</button></td>
     </g:form>

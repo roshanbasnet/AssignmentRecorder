@@ -9,11 +9,13 @@
 <html>
 <head>
     <title>Edit Assignment</title>
+    <meta name="layout" content="main">
     <g:set var="entityName" value="${message(code: 'assignment.label', default: 'Assignment')}" />
     <title><g:message code="default.edit.label" args="[entityName]" /></title>
 </head>
 
 <body>
+<div class="form-horizontal">
 <div id="edit-assignment" class="content scaffold-edit" role="main">
     %{--<h1><g:message code="default.edit.label" args="[entityName]" /></h1>--}%
     <g:if test="${flash.message}">
@@ -26,15 +28,21 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <g:form url="[resource:assignmentInstance, action:'update']" method="PUT" >
-        <g:hiddenField name="version" value="${assignmentInstance?.version}" />
+
+    <g:form class="form-horizontal" url="[resource:assignmentInstance, action:'update']" method="PUT" >
+        <g:hiddenField name="id" value="${assignmentInstance.id}" />
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>
         <fieldset class="buttons">
-            <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+            <div class="col-sm-offset-2 col-sm-10">
+                %{--<button type="submit" name="update" class="btn btn-primary">Update</button>--}%
+                <g:actionSubmit class="bottom btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+
+            </div>
         </fieldset>
     </g:form>
+    </div>
 </div>
 </body>
 </html>
