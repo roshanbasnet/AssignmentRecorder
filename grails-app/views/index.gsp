@@ -11,7 +11,7 @@
 <div><H2 id="topic" class="dk">Assignment List</H2></div>
 
 <div id="show-assignment" class="content scaffold-show" role="main">
-	<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+	%{--<h1><g:message code="default.show.label" args="[entityName]" /></h1>--}%
 	<g:if test="${flash.message}">
 		<div class="message" role="status">${flash.message}</div>
 	</g:if>
@@ -20,13 +20,13 @@
 
 			<tr>
 				<g:sortableColumn id="" property="id" title="${message(code: 'assignment.id.label', default: 'id')}" />
-				<g:sortableColumn id="userListHeader" property="subject" title="${message(code: 'message.rollno.label', default: 'subject')}" />
-				<g:sortableColumn id="userListHeader" property="type" title="${message(code: 'message.rollno.label', default: 'type')}" />
-				<g:sortableColumn id="userListHeader" property="question" title="${message(code: 'message.rollno.label', default: 'question')}" />
-				<g:sortableColumn id="userListHeader" property="description" title="${message(code: 'message.rollno.label', default: 'description')}" />
-				<g:sortableColumn id="userListHeader" property="assignDate" title="${message(code: 'message.rollno.label', default: 'assignDate')}" />
-				<g:sortableColumn id="userListHeader" property="dueDate" title="${message(code: 'message.rollno.label', default: 'dueDate')}" />
-				%{--<g:sortableColumn id="userListHeader" property="timeRemaining" title="${message(code: 'message.rollno.label', default: 'timeRemaining')}" />--}%
+				<g:sortableColumn id="" property="subject" title="${message(code: 'message.subject.label', default: 'subject')}" />
+				<g:sortableColumn id="" property="type" title="${message(code: 'message.type.label', default: 'type')}" />
+				<g:sortableColumn id="" property="question" title="${message(code: 'message.question.label', default: 'question')}" />
+				<g:sortableColumn id="" property="description" title="${message(code: 'message.description.label', default: 'description')}" />
+				<g:sortableColumn id="" property="assignDate" title="${message(code: 'message.assignDate.label', default: 'assignDate')}" />
+				<g:sortableColumn id="" property="dueDate" title="${message(code: 'message.dueDate.label', default: 'dueDate')}" />
+				%{--<g:sortableColumn id="" property="timeRemaining" title="${message(code: 'message.rollno.label', default: 'timeRemaining')}" />--}%
 
 				<th>Edit</th>
 

@@ -24,14 +24,14 @@
 	<div class="form-group ${hasErrors(bean: assignmentInstance, field: 'question', 'error')} required" >
 		<label  class="col-sm-2 control-label text-area">Question</label>
 		<div class="col-sm-10 col-sx-2">
-			<textarea name="question" class="form-control form-size" rows="3" required="" value="${assignmentInstance?.question}"></textarea>
+			<g:textArea name="question" class="form-control form-size" rows="3" required="" value="${assignmentInstance?.question}"/>
 		</div>
 	</div>
 
 	<div class="form-group ${hasErrors(bean: assignmentInstance, field: 'description', 'error')} required" >
 		<label  class="col-sm-2 control-label text-area">Description</label>
 		<div class="col-sm-10 col-sx-2">
-			<textarea name="description" class="form-control form-size" rows="3" required="" value="${assignmentInstance?.description}"></textarea>
+			<g:textArea name="description" class="form-control form-size" rows="3" required="" value="${assignmentInstance?.description}"/>
 		</div>
 	</div>
 

@@ -11,6 +11,7 @@
 	<asset:javascript src="bootstrap.min.js"/>
 	<asset:javascript src="custome.js"/>
 	<asset:stylesheet src="custome.css"/>
+	%{--<asset:imag src="logo.png"/>--}%
 
 	<g:layoutHead/>
 </head>
@@ -20,6 +21,7 @@
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">assignmentRecorder</a>
+
 		</div>
 		<ul id = "navbar" class="nav navbar-nav" >
 			<li role="presentation" class="active"><g:link controller="assignment" action="index">Home</g:link> </li>

@@ -6,13 +6,13 @@ import org.springframework.dao.DataIntegrityViolationException
 class AssignmentController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def show() {
-        render(view: "index")
-    }
-
-//    def show(Assignment assignmentInstance) {
-//        respond assignmentInstance
+//    def show() {
+//        render(view: "/index")
 //    }
+//
+    def show(Assignment assignmentInstance) {
+        respond assignmentInstance
+    }
 
 
     def aboutUs() {
@@ -44,7 +44,7 @@ class AssignmentController {
             return
         }
 
-        flash.message = message(code: 'assignment.label', default: 'assignment created Succesfully')
+        flash.message = message(code: 'assignment.label', default: 'assignment created Succesfulxly')
         redirect(action: "create")
 
     }
@@ -52,13 +52,13 @@ class AssignmentController {
 
     def edit() {
         def assignmentInstance = Assignment.findById(params.id)
-        if (!assignmentInstance) {
-            flash.message = "Not Found!!"
-            redirect(action: "index")
-        }
-        else {
+        if (assignmentInstance) {
             println "ajhsjhashajhs  is  " + params.id
             [assignmentInstance: assignmentInstance]
+        }
+        else {
+            flash.message = "Not Found!!"
+            redirect(action: "index")
         }
 
     }
@@ -78,17 +78,17 @@ class AssignmentController {
 
     def delete() {
         def assignmentInstance = Assignment.findById(params.id)
-        println "asdasdasdasd" + id
+
         if (!assignmentInstance) {
-            render action: 'show'
+            render action: 'index'
         }
         try {
             assignmentInstance.delete(flush: true)
-            redirect(action: 'show')
+            redirect(action: 'index')
         }
         catch (DataIntegrityViolationException e) {
             flash.message = "Something went wrong!!"
-            redirect(action: 'show')
+            redirect(action: 'index')
         }
     }
 }

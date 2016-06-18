@@ -10,8 +10,8 @@
 <head>
     <title>Edit Assignment</title>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'assignment.label', default: 'Assignment')}" />
-    <title><g:message code="default.edit.label" args="[entityName]" /></title>
+    %{--<g:set var="entityName" value="${message(code: 'assignment.label', default: 'Assignment')}" />--}%
+    %{--<title><g:message code="default.edit.label" args="[entityName]" /></title>--}%
 </head>
 
 <body>
@@ -37,7 +37,10 @@
         <fieldset class="buttons">
             <div class="col-sm-offset-2 col-sm-10">
                 %{--<button type="submit" name="update" class="btn btn-primary">Update</button>--}%
-                <g:actionSubmit class="bottom btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+                %{--<g:actionSubmit class="bottom btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />--}%
+                <button type="submit" name="create" class="btn btn-primary">Update</button>
+
+
 
             </div>
         </fieldset>
