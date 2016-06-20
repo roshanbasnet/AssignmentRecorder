@@ -10,8 +10,8 @@
 
 <div><H2 id="topic" class="dk">Assignment List</H2></div>
 
-<div class="table-responsive">
-	<table class="table .table-hover table-bordered">
+<div  id="table" class="table-responsive">
+	<table class="table table-hover table-bordered">
 
 		<tr>
 			<g:sortableColumn id="" property="id" title="${message(code: 'assignment.id.label', default: 'id')}" />
@@ -31,7 +31,7 @@
 			<tbody>
 			<g:each in="${assignmentInstanceList}" status="i" var="assignmentInstance">
 				<tr class="${(i % 2) == 0 ? 'even' : 'odd'}" style="text-align: center">
-				<td id="">${assignmentInstance.id}</td>
+				<td id="">${i+1}</td>
 				<td id="">${fieldValue(bean: assignmentInstance, field: "subject")} </td>
 				<td id="">${fieldValue(bean: assignmentInstance, field: "type")} </td>
 				<td id="">${fieldValue(bean: assignmentInstance, field: "question")} </td>
@@ -44,7 +44,7 @@
 				</g:form>
 				<g:form controller="assignment" action="delete">
 					<g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
-					<td><button class="btn btn-primary" onclick="alert('Deleting the Assignment')">Delete</button></td>
+					<td><button class="btn btn-primary " onclick="alert('Deleting the Assignment')">Delete</button></td>
 				</g:form>
 			</g:each>
 			</tbody>

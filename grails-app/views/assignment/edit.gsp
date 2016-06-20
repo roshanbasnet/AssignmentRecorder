@@ -29,16 +29,15 @@
         </ul>
     </g:hasErrors>
 
-    <g:form class="form-horizontal" url="[resource:assignmentInstance, action:'update']" method="PUT" >
+    <g:form class="form-horizontal" controller="assignment" action="update" method="post" >
         <g:hiddenField name="id" value="${assignmentInstance.id}" />
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>
         <fieldset class="buttons">
             <div class="col-sm-offset-2 col-sm-10">
-                %{--<button type="submit" name="update" class="btn btn-primary">Update</button>--}%
-                %{--<g:actionSubmit class="bottom btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />--}%
-                <button type="submit" name="create" class="btn btn-primary">Update</button>
+                <g:actionSubmit class="btn btn-primary" value="update" action="update"/>
+
 
 
 

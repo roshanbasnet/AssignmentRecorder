@@ -12,6 +12,7 @@ class AssignmentController {
 //
     def show(Assignment assignmentInstance) {
         respond assignmentInstance
+
     }
 
 
@@ -44,7 +45,7 @@ class AssignmentController {
             return
         }
 
-        flash.message = message(code: 'assignment.label', default: 'assignment created Succesfulxly')
+        flash.message = message(code: 'assignment.label', default: 'assignment created Successfully')
         redirect(action: "create")
 
     }
@@ -53,7 +54,6 @@ class AssignmentController {
     def edit() {
         def assignmentInstance = Assignment.findById(params.id)
         if (assignmentInstance) {
-            println "ajhsjhashajhs  is  " + params.id
             [assignmentInstance: assignmentInstance]
         }
         else {
@@ -64,13 +64,16 @@ class AssignmentController {
     }
 
     def update() {
+        println params
         def assignmentInstance = Assignment.findById(params.id)
         println "ajhsjhashajhs" + params.id
 
         if (assignmentInstance) {
             assignmentInstance.properties = params
-            flash.message = message(code: 'default.updated.message', args: [message(code: 'assignment.label', default: 'assignment.Assignment'), assignmentInstance.id])
-            redirect action: 'show'
+            assignmentInstance.save(flush: true)
+            flash.message = message(code: 'assignment.label', default: 'assignment updated Succesfully')
+            //flash.message = message(code: 'default.updated.message', args: [message(code: 'assignment.label', default: 'assignment.Assignment'), assignmentInstance.id])
+            redirect action: 'index'
         } else {
             redirect action: 'edit', params: [id: params.id]
         }
