@@ -4,7 +4,7 @@ import org.codehaus.groovy.grails.web.json.JSONObject
 import org.springframework.dao.DataIntegrityViolationException
 
 class AssignmentController {
-    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
 //    def show() {
 //        render(view: "/index")
@@ -66,7 +66,7 @@ class AssignmentController {
     def update() {
         println params
         def assignmentInstance = Assignment.findById(params.id)
-        println "ajhsjhashajhs" + params.id
+       // println "ajhsjhashajhs" + params.id
 
         if (assignmentInstance) {
             assignmentInstance.properties = params

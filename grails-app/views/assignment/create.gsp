@@ -10,8 +10,6 @@
 <head>
     <meta name="layout" content="main"/>
     <title>assignmentRecorder</title>
-    %{--<g:set var="entityName" value="${message(code: 'assignment.label', default: 'Assignment')}" />--}%
-    %{--<title><g:message code="default.create.label" args="[entityName]" /></title>--}%
 </head>
 
 <body>

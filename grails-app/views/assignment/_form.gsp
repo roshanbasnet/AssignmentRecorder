@@ -40,6 +40,7 @@
 		<label  class="col-sm-2 control-label">Assign Date</label>
 		<div class="col-sm-10 ">
 			<g:datePicker name="assignDate" class=" form-control form-size" precision="day"  value="${assignmentInstance?.assignDate}"  />
+			%{--<g:textField name="assignDate"  class = "form-control form-size" value="${formatDate(format:'dd-MM-yyyy',date:assignmentInstance?.assignDate)}"/>--}%
 		</div>
 	</div>
 

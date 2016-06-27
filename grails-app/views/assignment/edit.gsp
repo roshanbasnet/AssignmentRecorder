@@ -38,9 +38,6 @@
             <div class="col-sm-offset-2 col-sm-10">
                 <g:actionSubmit class="btn btn-primary" value="update" action="update"/>
 
-
-
-
             </div>
         </fieldset>
     </g:form>
