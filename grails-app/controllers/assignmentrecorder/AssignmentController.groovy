@@ -66,13 +66,10 @@ class AssignmentController {
     def update() {
         println params
         def assignmentInstance = Assignment.findById(params.id)
-       // println "ajhsjhashajhs" + params.id
-
         if (assignmentInstance) {
             assignmentInstance.properties = params
             assignmentInstance.save(flush: true)
             flash.message = message(code: 'assignment.label', default: 'assignment updated Succesfully')
-            //flash.message = message(code: 'default.updated.message', args: [message(code: 'assignment.label', default: 'assignment.Assignment'), assignmentInstance.id])
             redirect action: 'index'
         } else {
             redirect action: 'edit', params: [id: params.id]
