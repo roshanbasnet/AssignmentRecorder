@@ -30,7 +30,8 @@ class AssignmentController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [assignmentInstanceList: Assignment.list(params), assignmentInstanceTotal: Assignment.count(), listType: "All"]
+//        [assignmentInstanceList: Assignment.list(params), assignmentInstanceTotal: Assignment.count(), listType: "All"]
+        [assignmentInstanceList: Assignment.list(params), listType: "All"]
 
     }
 
@@ -78,12 +79,15 @@ class AssignmentController {
 
     def delete() {
         def assignmentInstance = Assignment.findById(params.id)
+//        def assignmentInstance = Assignment.get(params.id)
 
+//        println(params.id)
+//        render action: 'index'
         if (!assignmentInstance) {
             render action: 'index'
         }
         try {
-            assignmentInstance.delete(flush: true)
+            assignmentInstance.delete(flush: true,failOnerror:true)
             redirect(action: 'index')
         }
         catch (DataIntegrityViolationException e) {

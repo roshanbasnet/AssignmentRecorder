@@ -3,7 +3,7 @@ dataSource {
     jmxExport = true
     driverClassName = "com.mysql.jdbc.Driver"
     username = "root"
-    password = "1122"   //use your db password
+    password = ""   //use your db password
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -19,7 +19,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3306/assignmentrec"
+            url = "jdbc:mysql://localhost:3306/assignmentrec?zeroDateTimeBehavior=convertToNull"
         }
     }
     test {
@@ -30,8 +30,8 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/assignmentrec"
+            dbCreate = "create-drop"
+            url = "jdbc:mysql://localhost:3306/assignmentrec?zeroDateTimeBehavior=convertToNull"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

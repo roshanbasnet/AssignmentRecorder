@@ -73,4 +73,9 @@ grails.project.dependency.resolution = {
         //compile ":coffee-asset-pipeline:1.8.0"
         //compile ":handlebars-asset-pipeline:1.3.0.3"
     }
+    grails.reload.enabled = true
+    grails.project.fork = [
+            test: false,
+            run: false,
+    ]
 }

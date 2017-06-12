@@ -10,6 +10,7 @@ class UrlMappings {
         "/" {
             controller = "assignment"
             action = "index"
+//            action = "main"
         }
 
 	}

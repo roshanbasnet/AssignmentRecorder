@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1011704431">
-    <data-source source="LOCAL" name="AssignmentRecorder dev" uuid="6ec478bf-315c-4672-849b-3e0ddf9080a7">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="assignmentRecorder dev" uuid="9f16e34a-c365-4be2-9044-a605c839223c">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/grails-app/conf/DataSource.groovy</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/assignmentrec</jdbc-url>
-      <explain-plan-config>
-        <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
-      </explain-plan-config>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
@@ -19,11 +16,6 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
-      <libraries>
-        <library>
-          <url>file://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar</url>
-        </library>
-      </libraries>
     </data-source>
   </component>
 </project>

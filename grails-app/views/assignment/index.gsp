@@ -1,4 +1,5 @@
 <%@ page import="assignmentrecorder.Assignment" contentType="text/html;charset=UTF-8" %>
+%{--<%@ page import="assignmentrecorder.AssignmentController" contentType="text/html;charset=UTF-8" %>--}%
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +15,13 @@
 	<table class="table table-hover table-bordered">
 
 		<tr>
-			<g:sortableColumn id="" property="id" title="${message(code: 'assignment.id.label', default: 'id')}" />
-			<g:sortableColumn id="" property="subject" title="${message(code: 'message.subject.label', default: 'subject')}" />
-			<g:sortableColumn id="" property="type" title="${message(code: 'message.type.label', default: 'type')}" />
-			<g:sortableColumn id="" property="question" title="${message(code: 'message.question.label', default: 'question')}" />
-			<g:sortableColumn id="" property="description" title="${message(code: 'message.description.label', default: 'description')}" />
-			<g:sortableColumn id="" property="assignDate" title="${message(code: 'message.assignDate.label', default: 'assignDate')}" />
-			<g:sortableColumn id="" property="dueDate" title="${message(code: 'message.dueDate.label', default: 'dueDate')}" />
+			<g:sortableColumn id="" property="id" title="id" />
+			<g:sortableColumn id="" property="subject" title="subject" />
+			<g:sortableColumn id="" property="type" title="type" />
+			<g:sortableColumn id="" property="question" title="question" />
+			<g:sortableColumn id="" property="description" title="description" />
+			<g:sortableColumn id="" property="assignDate" title="assignDate" />
+			<g:sortableColumn id="" property="dueDate" title="dueDate" />
 
 			<th>Edit</th>
 
@@ -38,13 +39,14 @@
 				<td id="">${fieldValue(bean: assignmentInstance, field: "description")} </td>
 				<td id="">${fieldValue(bean: assignmentInstance, field: "assignDate")} </td>
 				<td id="">${fieldValue(bean: assignmentInstance, field: "dueDate")} </td>
-				<g:form controller="assignment" >
+				<g:form controller="assignment" action="edit">
 					<g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
-					<td><g:actionSubmit value="Edit" class="btn btn-primary" action="edit">Edit</g:actionSubmit></td>
+					<td><g:actionSubmit value="Edit" class="btn btn-primary" >Edit</g:actionSubmit></td>
 				</g:form>
-				<g:form controller="assignment" action="delete">
+				<g:form controller="assignment" action="delete" method="DELETE">
 					<g:hiddenField type="number" name="id" value="${assignmentInstance.id}"/>
-					<td><button class="btn btn-primary " onclick="alert('Deleting the Assignment')">Delete</button></td>
+					<td><g:actionSubmit value="delete" class="btn btn-danger"   >Delete</g:actionSubmit></td>
+
 				</g:form>
 			</g:each>
 			</tbody>
